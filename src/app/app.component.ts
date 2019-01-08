@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app-to-do';
+  public tarefa: string;
+  public tarefas: any [] = [];
+  setTarefas() {
+    this.tarefas.push(this.tarefa);
+    this.reiniciaInput();
+  }
+  delTarefa(tarefa) {
+    for (let i = 0; i <= this.tarefas.length; i++) {
+      if (this.tarefas[i] === tarefa) {
+        this.tarefas.splice(i, 1);
+      }
+    }
+  }
+  reiniciaInput() {
+    this.tarefa = '';
+  }
 }
